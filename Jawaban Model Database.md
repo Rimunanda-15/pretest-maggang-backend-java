@@ -1,11 +1,15 @@
-Desain database ini dibuat berdasarkan prinsip normalisasi, yang bertujuan untuk mengurangi duplikasi data dan meningkatkan integritas data. 
-Setiap tabel mewakili bagian yang berbeda dari sistem e-commerce dan hubungan dibuat di mana perlu untuk menghubungkan tabel-tabel ini.
-  
-Misalnya, tabel 'Cart' memiliki hubungan dengan tabel 'Product' dan 'Customer', yang menunjukkan bahwa sebuah keranjang belanja 
-milik seorang pelanggan dan dapat berisi beberapa produk. Ini membantu dalam melacak produk apa saja yang ada dalam keranjang belanja setiap pelanggan.
+![image](https://github.com/Rimunanda-15/pretest-maggang-backend-java/blob/main/asset/Model%20Database.png?raw=true)
 
-Demikian pula, tabel 'OrderBuy' dan 'OrderItem' membantu dalam melacak detail pesanan seperti produk apa yang dipesan, 
-berapa jumlahnya, dan siapa pelanggannya. Tabel 'OrderLog' membantu dalam melacak aktivitas pelanggan.
-Desain ini juga memungkinkan skalabilitas dan fleksibilitas. Misalnya, jika kita ingin menambahkan lebih banyak detail 
-tentang produk atau pelanggan di masa mendatang, kita bisa melakukannya dengan menambahkan lebih banyak atribut ke tabel 'Product' atau 'Customer'.
-Jadi, desain ini dipilih karena efisiensinya dalam mengelola dan melacak data dalam sistem e-commerce.
+Desain database ini dibuat berdasarkan prinsip normalisasi, yang betujuan untuk memudahkan dalam pengemabangan
+  
+
+pada rancangan ini memiliki 6 tabel diantaranya sebagai berikut :
+1. Users, pengguna aplikasi.
+2. kategori, kategori barang pada aplikasi.
+3. Produk, produk yang dijual oleh produsen.
+4. Transaksi, transaksi pengguna dan produk yang dibeli.
+5. Transaksi Detail, detail transaksi pengguna.
+6. pesanan log sebagai penyimanan log 
+
+untuk entitas kelas sangat terhubung dimana tabel produk sangat terhubung dengan transaksi yang memiliki sifat many to many 
+
