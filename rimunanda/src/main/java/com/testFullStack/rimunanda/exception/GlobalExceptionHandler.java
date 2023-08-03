@@ -7,8 +7,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler({IdNotFoundException.class})
+    @ExceptionHandler({IdNotFoundException.class, StockNotFoundException.class})
     public ResponseEntity<ErrorDetails> idNotFoundException(IdNotFoundException ex){
+        ErrorDetails errorModel = new ErrorDetails(false, ex.getMessage());
+        return  new ResponseEntity<ErrorDetails>(errorModel, HttpStatus.NOT_FOUND);
+    }
+    public ResponseEntity<ErrorDetails>stockNotFoundException(StockNotFoundException ex){
         ErrorDetails errorModel = new ErrorDetails(false, ex.getMessage());
         return  new ResponseEntity<ErrorDetails>(errorModel, HttpStatus.NOT_FOUND);
     }
