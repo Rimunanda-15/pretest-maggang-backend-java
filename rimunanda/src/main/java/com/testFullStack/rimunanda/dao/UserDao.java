@@ -22,7 +22,7 @@ public class UserDao {
     //   Insert data to database
     public void save(UsersDto.Save inputData){
         String query = "INSERT INTO public.\"user\"(\n" +
-                "\t nama, email, phone)\n" +
+                "\t name, email, phone)\n" +
                 "\tVALUES (:name, :email, :phone);" ;
 
         MapSqlParameterSource map = new MapSqlParameterSource();
@@ -36,7 +36,7 @@ public class UserDao {
 
     public void update(int id , UsersDto.Update inputData){
         String query = "UPDATE public.\"user\"\n" +
-                "\tSET nama=:name, email=:email, phone=:phone\n" +
+                "\tSET name=:name, email=:email, phone=:phone\n" +
                 "\tWHERE id=:id ;";
         MapSqlParameterSource map = new MapSqlParameterSource();
         map.addValue("id", id);
@@ -52,7 +52,7 @@ public class UserDao {
      * Get All data
      * */
     public List<Users> findAll(){
-        String query = "SELECT id, nama, email, phone\n" +
+        String query = "SELECT id, name, email, phone\n" +
                 "\tFROM public.\"user\" ORDER BY id ASC ;";
 
         return this.jdbcTemplate.query(query, new RowMapper<Users>() {
@@ -60,7 +60,7 @@ public class UserDao {
             public Users mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Users user = new Users();
                 user.setId(rs.getInt("id"));
-                user.setName(rs.getString("nama"));
+                user.setName(rs.getString("name"));
                 user.setEmail(rs.getString("email"));
                 user.setPhone(rs.getString("phone"));
                 return user;
@@ -69,7 +69,7 @@ public class UserDao {
     }
 
     public Optional<Users> findById(Integer id){
-        String query = "SELECT id, nama, email, phone\n" +
+        String query = "SELECT id, name, email, phone\n" +
                 "\tFROM public.user where id=:id ;";
         MapSqlParameterSource map = new MapSqlParameterSource();
         map.addValue("id",id);
@@ -80,7 +80,7 @@ public class UserDao {
                 public Optional<Users> mapRow(ResultSet rs, int rowNum) throws SQLException {
                     Users user = new Users();
                     user.setId(rs.getInt("id"));
-                    user.setName(rs.getString("nama"));
+                    user.setName(rs.getString("name"));
                     user.setEmail(rs.getString("email"));
                     user.setPhone(rs.getString("phone"));
                     return Optional.of(user);
