@@ -1,0 +1,16 @@
+knowledge base Test
+
+1. Apa yang anda ketahui tentang Rest API?
+2. Apa yang anda ketahui tentang Server side and Client side processing?
+3. Apa yang anda ketahui tentang Monolith dan Microservices, berikan contohnya?
+4. Apa yang anda ketahui tentang Design pattern inversion of Control serta Dependency Injection?
+5. Apa yang anda ketahui tentang Java programming dan Spring framework khususnya spring-boot?
+
+
+Jawaban :
+1. REST API (Representational State Transfer Application Programming Interface) adalah sebuah arsitektur yang digunakan untuk menghubungkan perangkat lunak atau sistem yang berbeda secara terdistribusi melalui internet. API sendiri adalah kependekan dari Application Programming Interface, yang merupakan sekumpulan aturan dan protokol yang memungkinkan berbagai aplikasi berkomunikasi satu sama lain.
+REST API dirancang untuk memungkinkan komunikasi antara client dan server menggunakan protokol HTTP (Hypertext Transfer Protocol). REST API menggunakan metode HTTP seperti GET, POST, PUT, dan DELETE untuk mengakses dan memanipulasi data pada server.
+2. Server side processing adalah suatu porses yang dimana proses logika yang terdapat dan berfungsi untuk memberi kan data ke client side sedangkan client side render berfungsi untuk melakukan pemrosesan rendering kepada client dan mengambil data yang ada di server render
+3. Monolith merupakan  sebuah model arsitektur di mana sebuah sistem dibangun dalam satu codebase yang sama contohnya pda sistem belanja online yang dibangun di integrasi yang sama sedangkan Microservice adalah Microservices adalah desain arsitektur untuk membuat sebuah aplikasi yang terdiri dari berbagai unit layanan tersendiri
+4,Design pattern "Inversion of Control" (IoC) dan "Dependency Injection" (DI) adalah konsep penting dalam pengembangan perangkat lunak, khususnya dalam paradigma pemrograman berorientasi objek. Kedua konsep ini berhubungan erat dan sering digunakan bersama-sama untuk mencapai kode yang lebih terstruktur, mudah diuji, dan mudah dipelihara.
+5 java merupakan bahasa permrograman yang mengandalkan paradigma object orientation dalam penggunaanya sedangkan java spring merupakan sebuah framework yang dirancang untuk memudahkan dalam membuat website yang dinamis dan memiliiki fitur dalam server rendering
