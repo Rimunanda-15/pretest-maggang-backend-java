@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserService {
     private final UserDao dao;
-    private final UserProductDao userProductDao
+    private final UserProductDao userProductDao;
 
     public void save(UsersDto.Save data){
         this.dao.save(data);
