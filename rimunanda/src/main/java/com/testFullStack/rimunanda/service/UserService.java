@@ -29,6 +29,8 @@ public class UserService {
                 .orElseThrow( () -> new IdNotFoundException("user dengan id "+ id + " tidak ditemukan"));
     }
 
+    public Users login(UsersDto.Login data){return this.dao.login(data);}
+
     public void update(Integer id, UsersDto.Update data){
         findById(id);
         this.dao.update(id,data);

@@ -5,6 +5,7 @@ import com.testFullStack.rimunanda.entity.Users;
 import com.testFullStack.rimunanda.service.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -52,6 +53,18 @@ public class UserController {
         this.service.save(data);
         output.put("status", "Berhasil menambah user");
         return ResponseEntity.ok(output);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(@RequestBody UsersDto.Login inputData) {
+        Users user = service.login(inputData);
+        if (user != null) {
+            // Login successful
+            return ResponseEntity.ok().body("{\"success\": true, \"message\": \"Login successful!\", \"user\": " + "{\"id\": " + user.getId() + ", \"name\": \"" + user.getName() + "\", \"email\": \"" + user.getEmail() + "\"}}");
+        } else {
+            // Login failed
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("{\"success\": false, \"message\": \"Login failed. Invalid credentials.\"}");
+        }
     }
 
     @PutMapping("/{id}")

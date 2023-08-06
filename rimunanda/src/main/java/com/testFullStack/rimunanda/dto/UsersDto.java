@@ -26,4 +26,14 @@ public class UsersDto {
         @Size(min = 11,max=13)
         private String phone;
     }
+
+    @Data
+    public static class Login{
+        @NotNull
+        private  Integer id ;
+        @NotEmpty
+        private String name;
+        @NotEmpty
+        private String email;
+    }
 }

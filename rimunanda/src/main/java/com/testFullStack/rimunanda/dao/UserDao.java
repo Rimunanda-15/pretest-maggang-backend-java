@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Repository
@@ -45,6 +47,25 @@ public class UserDao {
         map.addValue("phone", inputData.getPhone());
 
         this.jdbcTemplate.update(query,map);
+    }
+
+    public Users login(UsersDto.Login inputData){
+        String sql = "SELECT * FROM public.user WHERE id = :id AND email = :email";
+        MapSqlParameterSource map = new MapSqlParameterSource();
+        map.addValue("id", inputData.getId());
+        map.addValue("email", inputData.getEmail());
+
+        List<Users> users = jdbcTemplate.query(sql, map, new RowMapper<Users>() {
+            @Override
+            public Users mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Users user =new Users();
+                user.setId(rs.getInt("id"));
+                user.setEmail(rs.getString("email"));
+                return user;
+            }
+        });
+
+        return users.isEmpty() ? null : users.get(0);
     }
 
 
